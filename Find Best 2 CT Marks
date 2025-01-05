@@ -1,0 +1,12 @@
+clc; clear all ; 
+
+CT = [0 0 0 0];
+CT(1) = input( 'enter CT1 marks:' );
+CT(2) = input( 'enter CT2 marks:' );
+CT(3) = input( 'enter CT3 marks:' );
+CT(4) = input( 'enter CT4 marks:' );
+CT_sort = sort(CT);
+best_2_avg = ( CT_sort(3) + CT_sort(4) )/2;
+
+disp( ' your average best 2 ct mark is : ' );
+disp(best_2_avg);
