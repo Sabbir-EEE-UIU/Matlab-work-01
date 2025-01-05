@@ -1,0 +1,39 @@
+clc; clear all;
+
+Vs=10*exp(1i*30*pi/180); R=2; XL=(2*pi*50e-3); Z=(R+1i*XL); f=50;
+
+t=0 : 0.0001 : 3*(1/f) ;
+
+I=Vs/Z;
+VR=I*R; 
+VL=I*XL;
+
+Vsmag= abs(Vs);
+Vsang= angle(Vs);
+Vs_t = Vsmag * sin(2*pi*50*t + Vsang);
+
+
+VRmag= abs(VR);
+VRang= angle(VR);
+VR_t = VRmag * sin(2*pi*50*t + VRang);
+
+VLmag= abs(VL);
+VLang= angle(VL);
+VL_t = VLmag * sin(2*pi*50*t + VLang);
+
+Imag= abs(I);
+Iang= angle(I);
+I_t = Imag * sin(2*pi*50*t + Iang);
+
+
+
+plot(t ,  Vs_t);
+hold on;
+plot(t ,  VR_t,'r', 'linestyle', ':', 'linewidth',5);
+hold on;
+plot(t ,  VL_t,'m');
+hold on;
+plot(t ,  I_t,'c');
+
+xlabel('Time (t)'); ylabel('Voltage (v)');title('First Plot');
+legend('Vs_t','VR_t','VL_t','I_t');
