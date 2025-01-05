@@ -1,0 +1,56 @@
+clc; clear all;
+t = (0:0.001:0.1); 
+
+A_freq = 5;       
+f1 = 50;          
+f2 = 70;          
+phi_freq = 0;     
+
+V1_freq = A_freq * cos(2 * pi * f1 * t + deg2rad(phi_freq));
+V2_freq = A_freq * cos(2 * pi * f2 * t + deg2rad(phi_freq));
+
+
+subplot(3,1,1);
+plot(t, V1_freq, 'b', t, V2_freq, 'r--');
+title('Effect of Frequency Change');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('f = 50 Hz', 'f = 70 Hz');
+
+
+A1_amp = 5;       
+A2_amp = 10;      
+f_amp = 50;       
+phi_amp = 0;      
+
+V1_amp = A1_amp * cos(2 * pi * f_amp * t + deg2rad(phi_amp));
+V2_amp = A2_amp * cos(2 * pi * f_amp * t + deg2rad(phi_amp));
+
+
+subplot(3,1,2);
+plot(t, V1_amp, 'b', t, V2_amp, 'r--');
+title('Effect of Amplitude Change');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('A = 5', 'A = 10');
+
+A_phase = 5;      
+f_phase = 50;     
+phi1 = 0;         
+phi2 = 30;        
+phi3 = 60;        
+
+V1_phase = A_phase * cos(2 * pi * f_phase * t + deg2rad(phi1));
+V2_phase = A_phase * cos(2 * pi * f_phase * t + deg2rad(phi2));
+V3_phase = A_phase * cos(2 * pi * f_phase * t + deg2rad(phi3));
+
+
+subplot(3,1,3);
+plot(t, V1_phase, 'b', t, V2_phase, 'r--', t, V3_phase, 'g-.');
+title('Effect of Phase Change');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('Phase = 0°', 'Phase = 30°', 'Phase = 60°');
+
+
+title('Frequency, Amplitude, and Phase Effects on a Signal');
